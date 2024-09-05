@@ -1,0 +1,16 @@
+{
+  "name": "tranquil-backend",
+  "version": "1.0.0",
+  "description": "Backend for Tranquil - Mental health app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mr.codefrost",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.17.1",
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
+  }
+}
