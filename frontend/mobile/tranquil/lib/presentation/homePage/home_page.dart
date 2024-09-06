@@ -1,30 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tranquil/features/meditation/presentation/pages/meditation_screen.dart';
-import 'package:tranquil/features/music/presentation/pages/music_player_screen.dart';
-import 'package:tranquil/presentation/bottomNavbar/widgets/bottom_nav_bar.dart';
 
-import '../bottomNavbar/bloc/navigation_bloc.dart';
+import '../../features/meditation/presentation/pages/meditation_screen.dart';
+import '../../features/music/presentation/pages/playlist_screen.dart';
+import '../bottomNavBar/bloc/navigation_bloc.dart';
+import '../bottomNavBar/bloc/navigation_state.dart';
+import '../bottomNavBar/widgets/bottom_nav_bar.dart';
 
 class HomeScreen extends StatelessWidget {
-  final List<Widget> pages = [MeditationScreen(), MusicPlayerScreen()];
+  HomeScreen({super.key});
+
+  final List<Widget> pages = [const MeditationScreen(), PlaylistScreen()];
 
   BottomNavigationBarItem createBottomNavItem(
-      {required String assetName,
-      required bool isActive,
-      required BuildContext context}) {
+      {required String assetName, required bool isActive, required BuildContext context}) {
     return BottomNavigationBarItem(
-      icon: Image.asset(
-        assetName,
-        color: isActive
-            ? Theme.of(context).focusColor
-            : Theme.of(context).primaryColor,
-      ),
-      label: '',
-    );
+        icon: Image.asset(
+          assetName,
+          height: 45,
+          color: isActive ? Theme.of(context).focusColor : Theme.of(context).primaryColor,
+        ),
+        label: '');
   }
-
-  HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,20 +40,18 @@ class HomeScreen extends StatelessWidget {
           if (state is NavigationChanged) {
             currentIndex = state.index;
           }
-          final List<BottomNavigationBarItem> bottomNavigationBarItems = [
+
+          final List<BottomNavigationBarItem> bottomNavItems = [
             createBottomNavItem(
-              assetName: 'assets/images/menu_home.png',
-              isActive: currentIndex == 0,
-              context: context,
-            ),
+                assetName: 'assets/images/menu_home.png', isActive: currentIndex == 0, context: context),
             createBottomNavItem(
-              assetName: 'assets/images/menu_songs.png',
-              isActive: currentIndex == 1,
-              context: context,
-            ),
+                assetName: 'assets/images/menu_songs.png', isActive: currentIndex == 1, context: context),
           ];
+
           return BottomNavBar(
-              items: bottomNavigationBarItems, currentIndex: currentIndex);
+            items: bottomNavItems,
+            currentIndex: currentIndex,
+          );
         },
       ),
     );

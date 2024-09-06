@@ -26,8 +26,8 @@ class DefaultColors {
 class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
-      primaryColor: Color(0xFFAEAFF7),
-      focusColor: Color(0xFF371B34),
+      primaryColor: const Color(0xFFAEAFF7),
+      focusColor: const Color(0xFF371B34),
       textTheme: TextTheme(
         bodySmall: GoogleFonts.alegreyaSans(
           fontSize: FontSizes.small,
@@ -50,9 +50,10 @@ class AppTheme {
           color: Colors.black,
         ),
         titleLarge: GoogleFonts.alegreyaSans(
-            fontSize: FontSizes.doubleExtraLarge,
-            color: Colors.black,
-            fontWeight: FontWeight.bold),
+          fontSize: FontSizes.doubleExtraLarge,
+          color: Colors.black,
+          fontWeight: FontWeight.bold
+        ),
         labelSmall: GoogleFonts.alegreyaSans(
           fontSize: FontSizes.small,
           color: Colors.black,
@@ -64,7 +65,8 @@ class AppTheme {
         labelLarge: GoogleFonts.alegreyaSans(
             fontSize: FontSizes.doubleExtraLarge,
             color: Colors.black,
-            fontWeight: FontWeight.bold),
+            fontWeight: FontWeight.bold
+        ),
       ),
     );
   }

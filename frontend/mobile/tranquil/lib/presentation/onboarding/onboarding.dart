@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../homePage/home_page.dart';
+
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 
@@ -9,26 +11,30 @@ class OnboardingScreen extends StatelessWidget {
       body: Stack(
         children: [
           Positioned.fill(
-              child: Image.asset(
-            'assets/images/onboarding.png',
-            fit: BoxFit.contain,
-          )),
+            child: Image.asset(
+              'assets/images/onboarding.png',
+              fit: BoxFit.cover,
+            ),
+          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.only(bottom: 50.0, left: 20, right: 20),
               child: SizedBox(
                 height: 70,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (BuildContext context) => HomeScreen()),
+                        (Route<dynamic> route) => false);
+                  },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Theme.of(context).focusColor,
                       minimumSize: const Size(double.infinity, 50),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      )),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
                   child: Text(
-                    'Get Started',
+                    'Let us help you',
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),

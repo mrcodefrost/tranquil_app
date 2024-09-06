@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart' as http;
 
 import '../../../../core/theme.dart';
+import '../bloc/song_bloc.dart';
+import '../bloc/song_state.dart';
 import 'music_player_screen.dart';
 
 class PlaylistScreen extends StatelessWidget {
@@ -11,22 +12,22 @@ class PlaylistScreen extends StatelessWidget {
     {
       'title': 'Rain On Glass',
       'artist': 'Rain On Glass',
-      'thumbnail': 'assets/child_with_dog.png',
+      'thumbnail': 'assets/images/child_with_dog.png',
     },
     {
       'title': 'Gentle Breeze',
       'artist': 'Soothing Sounds',
-      'thumbnail': 'assets/child_with_dog.png',
+      'thumbnail': 'assets/images/child_with_dog.png',
     },
     {
       'title': 'Whispering Pines',
       'artist': 'Nature Vibes',
-      'thumbnail': 'assets/child_with_dog.png',
+      'thumbnail': 'assets/images/child_with_dog.png',
     },
     {
       'title': 'Ocean Waves Breeze',
       'artist': 'Soothing Sounds',
-      'thumbnail': 'assets/child_with_dog.png',
+      'thumbnail': 'assets/images/child_with_dog.png',
     }
   ];
 
@@ -45,7 +46,7 @@ class PlaylistScreen extends StatelessWidget {
       body: BlocBuilder<SongBloc, SongState>(
         builder: (context, state) {
           if (state is SongLoading) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else if (state is SongLoaded) {
@@ -58,7 +59,7 @@ class PlaylistScreen extends StatelessWidget {
                       leading: CircleAvatar(
                         backgroundImage: AssetImage(songs[index]['thumbnail']!),
                       ),
-                      trailing: Icon(Icons.arrow_forward_ios, size: 15),
+                      trailing: const Icon(Icons.arrow_forward_ios, size: 15),
                       title: Text(
                         state.songs[index].title,
                         style: Theme.of(context).textTheme.labelMedium,
