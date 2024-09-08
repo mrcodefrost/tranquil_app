@@ -1,6 +1,6 @@
 # Tranquil
 
-**Tranquil** is a comprehensive mental health app designed to enhance your mental well-being by providing personalized advice, mental health exercises, and calming music based on your mood and preferences.
+**Tranquil** is a comprehensive AI mental health app designed to enhance your mental well-being by providing personalized advice, mental health exercises, and calming music based on your mood and preferences.
 In today’s fast-paced world, mental health is more important than ever, and Tranquil aims to offer a sanctuary for your mind.
 
 <div style="display: flex; justify-content: center;  align-items: center;">
